@@ -11,7 +11,7 @@ then
     echo "общее время успешных обращений: ${totalTime}ms"
     echo "среднее значение: "$(echo "${totalTime} / ${count}" | bc -l)"ms"
 
-    q95Index=$(echo "${count} - ${count} / 20" | bc) #не "*0.05" чтобы не разбираться с округлением
+    q95Index=$(echo "${count} - ${count} / 20" | bc) #не " * 0.05" чтобы не разбираться с округлением
     q99Index=$(echo "${count} - ${count} / 100" | bc)
     echo "95% квантиль: "$(sed "${q95Index}q;d" $TMPFILE)"ms"
     echo "99% квантиль: "$(sed "${q99Index}q;d" $TMPFILE)"ms"
