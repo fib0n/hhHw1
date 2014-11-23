@@ -1,0 +1,17 @@
+set terminal png
+set output 'charts.png'
+
+set xtics 1
+set timefmt "%H"
+set xlabel "Hours"
+
+set autoscale
+set ylabel "95% quantile (ms)"
+
+set title "95% квантили по времени отклика в течение дня по типам URL"
+set key reverse Left outside
+set grid
+
+set style data linespoints
+
+plot "resume.data" using 1:2 title "Resume", "vacancy.data" using 1:2 title "Vacancy", "user.data" using 1:2 title "User"
