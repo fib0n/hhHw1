@@ -36,6 +36,7 @@ do
 done
 
 #charts
+command -v gnuplot >/dev/null 2>&1 || { echo >&2 "gnuplot required! On mac type 'brew install gnuplot'"; exit 1; }
 gnuplot charts.plg
 
 if [[ "$OSTYPE" == "darwin"* ]]; # Mac OSX

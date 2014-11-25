@@ -2,7 +2,7 @@
 LOGFILE="log.txt"
 TMPFILE=`mktemp /tmp/hhLogs.XXXXXX` || exit 1
 
-grep " 12:.* /resume\?.* 200 " $LOGFILE | sed -E 's/^.* (.*)ms/\1/' | sort > $TMPFILE
+grep -E " 12:.* /resume\?.* 2\d{2} " $LOGFILE | sed -E 's/^.* (.*)ms/\1/' | sort > $TMPFILE
 count="$(wc -l < $TMPFILE)"
 
 if [ $count -gt 0 ]
